@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden; 
+            padding: 0;
+            background-color: black; 
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            font-size: 2em;
+        }
+
+        #sections {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-around;
+            position: fixed;
+            left: 0;
+            height: 100vh;
+            width: 15%;
+            padding: 10px;
+            z-index: 1;
+            background-color: #333; 
+            border: 1px solid #c2cada;
+            overflow: hidden; /* Hide overflowing content */
+        }
+
+        #sections a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 0 0 4px 0;
+            transition: background-color 0.3s; /* Smooth background color transition */
+        }
+
+        #sections a:hover {
+            background-color: #555; /* Change background color on hover */
+        }
+
+        #content {
+            margin-left: 20%; /* Adjust the margin to leave space for the sections */
+            width: 80%;
+            transition: margin-left 0.5s; /* Smooth transition for margin change */
+        }
+
+        .section {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 10px;
+        }
+
+        #section1 {
+            background-color: black;
+        }
+
+        #section2 {
+            background-color: black;
+        }
+
+        #section3 {
+            background-color: black;
+        }
+
+        #section4 {
+            background-color: black;
+        }
+
+        #section5 {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="sections">
+        <a href="#section1">Section 1</a>
+        <a href="#section2">Section 2</a>
+        <a href="#section3">Section 3</a>
+        <a href="#section4">Section 4</a>
+        <a href="#section5">Section 5</a>
+    </div>
+
+    <div id="content">
+        <div id="section1" class="section">
+                <p>Hi! I'm Sai Prathyusha and I'm an aspiring Computer Science Engineer with a Master’s degree from the University at Buffalo. I believe my skills would enable me to contribute to the company’s mission of setting the standard of excellence in the Software industry. I have over a year of experience in Python Rest APIs, where I developed well-designed, testable code.
+                 <br>
+                 <br>
+                    This is another paragraph below the first one in Section 1.
+                </p>
+
+            </div>
+        <div id="section2" class="section">
+            <p>This is Section 2</p>
+        </div>
+        <div id="section3" class="section">
+            <p>This is Section 3</p>
+        </div>
+        <div id="section4" class="section">
+            <p>This is Section 4</p>
+        </div>
+        <div id="section5" class="section">
+            <p>This is Section 5</p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('#sections a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="emojicss.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            overflow: hidden;
+            position: relative; /* Add relative positioning to the body for absolute positioning of the GIF */
+        }
+        
+        #emoji {
+            font-size: 5cm;
+            transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+            color: white;
+        }
+
+        .gif {
+            max-width: 400px; /* Adjust the maximum width as needed */
+            height: 8cm;
+            position: absolute;
+            bottom: -20px; /* Adjust the bottom spacing as needed */
+            z-index: 2;
+            pointer-events: none; /* Make the image not interfere with mouse events */
+        }
+
+        #it-woman {
+            left: 10px; /* Adjust the left spacing as needed */
+        }
+
+        #another-gif {
+            right: 10px; /* Adjust the right spacing as needed */
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const emojiContainer = document.getElementById('emoji-container');
+            const emoji = document.getElementById('emoji');
+
+            document.addEventListener('mousemove', function (e) {
+                const { clientX, clientY } = e;
+                const { left, top, width, height } = emojiContainer.getBoundingClientRect();
+
+                const centerX = left + width / 2;
+                const centerY = top + height / 2;
+
+                const angle = Math.atan2(clientY - centerY, clientX - centerX);
+                const distance = Math.min(30, Math.hypot(clientX - centerX, clientY - centerY));
+
+                const offsetX = distance * Math.cos(angle);
+                const offsetY = distance * Math.sin(angle);
+
+                emoji.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="animated-text">Hello! Welcome to my page</div>
+    <div id="emoji-container" class="emoji-container">
+        <div id="emoji">🖥️</div>
+    </div>
+    <a href="project.html" class="click-me-arrow" id="turnPage">Click Me</a>
+
+    <!-- Add the IT woman GIF here -->
+    <img id="it-woman" class="gif" src="C:\Users\prath\OneDrive\Desktop\javascript\giphy.gif" alt="IT Woman GIF">
+    <img id="another-gif"  class="gif" src="C:\Users\prath\OneDrive\Desktop\javascript\giphy2.gif" style="bottom: 35px;">
+    <script src="emoji.js"></script>
+</body>
+</html>

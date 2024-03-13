@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        #animated-text {
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 2.5cm;
+            font-style: italic;
+            overflow: hidden;
+            color: white;
+            animation: moveText 2s linear forwards;
+        }
+
+        .details-container {
+            position: fixed;
+            top: 50px;
+            left: 0;
+            background-color: pink; /* Pink background color for the box */
+            padding: 20px;
+            border: 2px solid white;
+            opacity: 0;
+            animation: showDetails 1s 2s forwards;
+        }
+
+        #details,
+        #details2 {
+            font-size: 1.5em;
+            color: white; /* White text color */
+        }
+
+        #details2 {
+            position: fixed;
+            bottom: 50px;
+        }
+
+        #other-pages {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            padding: 20px;
+            text-align: center;
+            font-size: 1cm;
+            overflow: hidden;
+            color: white;
+            animation: showDetails 1s 2s forwards;
+        }
+
+        #other-pages a {
+            display: block;
+            margin-bottom: 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .sticky-note1 {
+            position: fixed;
+            top: 50px;
+            left: 0;
+            background-color: gray; 
+            padding: 20px;
+            border: 2px solid #c2cada; /* Yellow border color for the sticky note */
+            opacity: 0;
+            animation: fadeInNote 1s 3s forwards;
+        }
+
+        .sticky-note-content {
+            font-size: 1.2em;
+            color: black; /* Black text color for the details on the sticky note */
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+            }
+        }
+
+        @keyframes showDetails {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInNote {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="animated-text">Personal<br>Details</div>
+    
+    <div id="details2">
+        Education:<br>
+        <b>University at Buffalo-2023</b><br>
+        -Master's in Computer Science<br>
+        <b>Institute of Aeronautical Engineering-2021</b><br>
+        -Bachelor's in Computer Science
+    </div>
+    <div id="other-pages">
+        <a href="top.html">Page 2</a><br>
+        <a href="page3.html">LinkedIn</a><br>
+    </div>
+
+    <div class="sticky-note1">
+        <div class="sticky-note-content">
+            <!-- Replace "your details here" with actual details from nextpage.html -->
+            <b>Contact:</b><br>
+            Sai Prathyusha Pamulapati<br>
+            saiprathyusha010220@gmail.com<br>
+            (716)-486-6888
+        </div>
+    </div>
+
+</body>
+
+</html>
